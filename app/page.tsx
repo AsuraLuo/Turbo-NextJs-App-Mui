@@ -1,7 +1,11 @@
+"use client";
+
+import Button from "@mui/material/Button";
+
 const Home = () => {
   return (
     <div>
-      <p>Home Page</p>
+      <Button variant="outlined">Home Page</Button>
     </div>
   );
 };

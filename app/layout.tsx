@@ -2,6 +2,7 @@ import { Metadata } from "next";
 import Link from "next/link";
 
 import Header from "@/components/Header";
+import ThemeRegistry from "@/components/ThemeRegistry";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -12,16 +13,20 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
   return (
     <html lang="en">
       <body>
-        <Header />
-        <div>
-          <Link href="/account">Account Page</Link>
-          <br />
-          <Link href="/login">Login Page</Link>
-          <br />
-          <Link href="/cart">Cart Page</Link>
-          <br />
-        </div>
-        <main>{children}</main>
+        <ThemeRegistry>
+          <Header />
+          <div>
+            <Link href="/account">Account Page</Link>
+            <br />
+            <Link href="/login">Login Page</Link>
+            <br />
+            <Link href="/cart" prefetch={false}>
+              Cart Page
+            </Link>
+            <br />
+          </div>
+          <main>{children}</main>
+        </ThemeRegistry>
       </body>
     </html>
   );
